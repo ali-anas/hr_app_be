@@ -9,7 +9,6 @@ const getScore = (yoe) => {
 }
 
 const getAllCandidates = (req, res) => {
-  console.log('getting candidates');
 
   pool.query(FETCH_ALL_CANDIDATES, (error, results) => {
     if (error) {
@@ -28,7 +27,6 @@ const getAllCandidates = (req, res) => {
 const registerNewCandidate = async (req, res) => {
   try {
     const { name, email, expected_salary, mobile, status, skills } = req.body;
-    console.log('[D]', 'req.body: ', req.body);
     const candidateExpectation = parseInt(expected_salary);
 
     // Insert data into the candidates table
