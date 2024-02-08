@@ -1,4 +1,4 @@
-const pool = require('../db');
+const pool = require('../../db');
 const { FETCH_ALL_CANDIDATES } = require('./queries');
 
 
