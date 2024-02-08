@@ -29,11 +29,12 @@ const registerNewCandidate = async (req, res) => {
   try {
     const { name, email, expected_salary, mobile, status, skills } = req.body;
     console.log('[D]', 'req.body: ', req.body);
+    const candidateExpectation = parseInt(expected_salary);
 
     // Insert data into the candidates table
     const candidateResult = await pool.query(
       'INSERT INTO candidate(name, status, mobile, email, expected_salary) VALUES($1, $2, $3, $4, $5) RETURNING id',
-      [name, status, mobile, email, expected_salary]
+      [name, status, mobile, email, candidateExpectation]
     );
     const candidateId = candidateResult.rows[0].id;
 
